@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified Developer ID - Vikash Sahu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Caveat:wght@700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            padding: 20px;
+        }
+
+        /* Verification Success Badge */
+        .verify-badge {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(0, 255, 136, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); }
+        }
+
+        .id-card {
+            background: linear-gradient(135deg, #020c24 0%, #001a4d 50%, #020c24 100%);
+            border: 2px solid #00c3ff;
+            border-radius: 20px;
+            width: 380px;
+            padding: 25px 20px;
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.4), inset 0 0 15px rgba(0, 195, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top Section */
+        .top-section {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 195, 255, 0.3);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .top-icon {
+            font-size: 30px;
+            color: #fff;
+            margin-right: 15px;
+            text-shadow: 0 0 5px #00c3ff;
+        }
+
+        .top-text h3 {
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .top-text p {
+            font-size: 10px;
+            color: #00c3ff;
+            letter-spacing: 3px;
+            margin-top: 3px;
+        }
+
+        /* Profile Photo Frame */
+        .profile-pic {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+            border-radius: 15px; /* Square shape with curved corners */
+            border: 2px solid #00c3ff;
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.5);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #001a4d;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Name Section with Crown */
+        .name-section {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .name-section h1 {
+            font-size: 34px;
+            font-weight: 800;
+        }
+
+        .name-section h1 .first-name {
+            color: #fff;
+        }
+
+        .name-section h1 .last-name {
+            color: #00c3ff;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        .crown-icon {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            font-size: 26px;
+            color: #fff;
+            filter: drop-shadow(0 0 5px #00c3ff);
+            transform: rotate(15deg);
+        }
+
+        .subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .subtitle::before, .subtitle::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background-color: #fff;
+        }
+
+        /* Details Section */
+        .details {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .detail-icon {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #00c3ff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: #00c3ff;
+            font-size: 12px;
+            box-shadow: 0 0 5px rgba(0, 195, 255, 0.5);
+        }
+
+        .detail-label {
+            width: 90px;
+            font-weight: 600;
+        }
+
+        .detail-colon {
+            margin-right: 10px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+        }
+
+        /* Quote */
+        .quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .quote i {
+            color: #00c3ff;
+            margin-right: 5px;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0, 195, 255, 0.3);
+            padding-top: 15px;
+        }
+
+        .bottom-icon {
+            font-size: 28px;
+            color: #00c3ff;
+            text-shadow: 0 0 8px rgba(0, 195, 255, 0.6);
+        }
+
+        .signature {
+            font-family: 'Caveat', cursive;
+            color: #00c3ff;
+            text-align: right;
+            line-height: 0.9;
+        }
+
+        .signature .master {
+            font-size: 24px;
+        }
+
+        .signature .maind {
+            font-size: 28px;
+            margin-left: 15px;
+        }
+
+        /* Corner Cuts Effect */
+        .id-card::before, .id-card::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #00c3ff;
+        }
+        
+        .id-card::before { top: 0; left: 0; transform: rotate(-45deg) translate(-15px, -15px); }
+        .id-card::after { bottom: 0; right: 0; transform: rotate(-45deg) translate(15px, 15px); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Verification Successful Banner -->
+    <div class="verify-badge">
+        <i class="fa-solid fa-circle-check"></i> VERIFICATION SUCCESSFUL
+    </div>
+
+    <div class="id-card">
+        <!-- Top Section -->
+        <div class="top-section">
+            <div class="top-icon">&lt;/&gt;</div>
+            <div class="top-text">
+                <h3>DEVELOPER ID</h3>
+                <p>LEARN &bull; CODE &bull; GROW</p>
+            </div>
+        </div>
+
+        <!-- Photo Frame Section -->
+        <div class="profile-pic">
+            <img src="Profile.png" alt="Vikash Sahu Profile">
+        </div>
+
+        <!-- Name Section -->
+        <div class="name-section">
+            <h1><span class="first-name">Vikash</span> <span class="last-name">Sahu</span></h1>
+            <i class="fa-solid fa-crown crown-icon"></i>
+            <div class="subtitle">DCA Student</div>
+        </div>
+
+        <!-- Details -->
+        <div class="details">
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fa-solid fa-user"></i></div>
+                <div class="detail-label">Developer</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">Vikash Sahu</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="detail-label">Course</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">DCA</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <div class="detail-label">Expertise</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">Web Coding</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="quote">
+            <i class="fa-solid fa-quote-left"></i> Dream Big... Trading ...
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <div class="bottom-icon">&lt;/&gt;</div>
+            <div class="signature">
+                <div class="master">Master</div>
+                <div class="maind">Maind</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
