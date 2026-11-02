@@ -90,25 +90,24 @@
             margin-top: 3px;
         }
 
-        /* Profile Photo Frame */
+        /* Big Profile Photo Frame */
         .profile-pic {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 15px;
-            border-radius: 15px; /* Square shape with curved corners */
+            width: 100%;
+            max-width: 260px; /* Bada size fix kiya gaya hai */
+            margin: 0 auto 20px;
+            border-radius: 12px;
             border: 2px solid #00c3ff;
             box-shadow: 0 0 15px rgba(0, 195, 255, 0.5);
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #001a4d;
+            background-color: rgba(0, 26, 77, 0.5);
+            padding: 5px; /* Frame ke andar thoda space */
         }
 
         .profile-pic img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Photo katega nahi, puri height legi */
+            display: block;
+            border-radius: 8px;
+            object-fit: contain;
         }
 
         /* Name Section with Crown */
@@ -276,7 +275,7 @@
             </div>
         </div>
 
-        <!-- Photo Frame Section -->
+        <!-- Big Photo Frame Section (No crop, full height) -->
         <div class="profile-pic">
             <img src="Profile.png" alt="Vikash Sahu Profile">
         </div>
